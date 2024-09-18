@@ -8,6 +8,48 @@
 
 <body>
 	<!-- the entire body must be written by student -->
+	<h1>Sorted Articles</h1>
+    <ul id="band"></ul>
+
+    <script>
+        const articles = [
+            'The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'
+        ];
+
+        // Function to sort articles while ignoring specific words
+        function sortArticles(articles) {
+            const ignoreWords = ["a", "an", "the"];
+
+            return articles.sort((a, b) => {
+                const cleanA = a
+                    .toLowerCase()
+                    .split(' ')
+                    .filter(word => !ignoreWords.includes(word))
+                    .join(' ');
+
+                const cleanB = b
+                    .toLowerCase()
+                    .split(' ')
+                    .filter(word => !ignoreWords.includes(word))
+                    .join(' ');
+
+                return cleanA.localeCompare(cleanB);
+            });
+        }
+
+        // Populate the unordered list with sorted articles
+        function displayArticles(articles) {
+            const sortedArticles = sortArticles(articles);
+            const list = document.getElementById('band');
+
+            sortedArticles.forEach(article => {
+                const li = document.createElement('li');
+                li.textContent = article;
+                list.appendChild(li);
+            });
+        }
+        displayArticles(articles);
+    </script>
     <script type="text/javascript" src="./script.js">
 </script>
 
