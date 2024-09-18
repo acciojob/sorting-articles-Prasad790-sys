@@ -12,15 +12,15 @@
     <ul id="band"></ul>
 
     <script>
-        const articles = [
+        const band = [
             'The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'
         ];
 
         // Function to sort articles while ignoring specific words
-        function sortArticles(articles) {
+        function sortArticles(band) {
             const ignoreWords = ["a", "an", "the"];
 
-            return articles.sort((a, b) => {
+            return band.sort((a, b) => {
                 const cleanA = a
                     .toLowerCase()
                     .split(' ')
@@ -38,8 +38,8 @@
         }
 
         // Populate the unordered list with sorted articles
-        function displayArticles(articles) {
-            const sortedArticles = sortArticles(articles);
+        function displayArticles(band) {
+            const sortedArticles = sortArticles(band);
             const list = document.getElementById('band');
 
             sortedArticles.forEach(article => {
@@ -48,7 +48,7 @@
                 list.appendChild(li);
             });
         }
-        displayArticles(articles);
+        displayArticles(band);
     </script>
     <script type="text/javascript" src="./script.js">
 </script>
